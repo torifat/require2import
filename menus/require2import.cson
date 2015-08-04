@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Convert require to import'
+      'command': 'require2import:convert'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Require2Import'
+      'submenu': [
+        {
+          'label': 'Convert'
+          'command': 'require2import:convert'
+        }
+      ]
+    ]
+  }
+]

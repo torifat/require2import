@@ -1,0 +1,23 @@
+{
+  "name": "require2import",
+  "main": "./lib/require2import",
+  "version": "0.1.0",
+  "description": "A short description of your package",
+  "keywords": [
+    "require",
+    "import",
+    "es6",
+    "es2015",
+    "module"
+  ],
+  "activationCommands": {
+    "atom-workspace": "require2import:convert"
+  },
+  "repository": "https://github.com/torifat/require2import",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
