@@ -1,8 +1,8 @@
 {
   "name": "require2import",
   "main": "./lib/require2import",
-  "version": "1.0.0",
-  "description": "A short description of your package",
+  "version": "0.1.1",
+  "description": "changes `require` syntax to `import`",
   "keywords": [
     "require",
     "import",
