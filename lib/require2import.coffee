@@ -18,7 +18,7 @@ module.exports = Require2import =
       editor.selectLinesContainingCursors()
       if range = editor.getSelectedBufferRange()
         editor.scanInBufferRange(
-          /(?:(?:var|const|let)\s+)?([\w]+)\s+=\s+require\((?:'|")([\w-\.\/]+)(?:'|")\)(;|,)?/,
+          /(?:(?:var|const|let)\s+)?(\{?[\w,\s]+\}?)\s+=\s+require\((?:'|")([\w-\.\/]+)(?:'|")\)(;|,)?/,
           range,
           ({match, replace, stop}) ->
             if match.length > 3
