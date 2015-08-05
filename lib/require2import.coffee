@@ -18,11 +18,12 @@ module.exports = Require2import =
       editor.selectLinesContainingCursors()
       if range = editor.getSelectedBufferRange()
         editor.scanInBufferRange(
-          /(?:var\s+)?([\w]+)\s+=\s+require\((?:'|")([\w-\.\/]+)(?:'|")\)(?:;|,)/,
+          /(?:(?:var|const|let)\s+)?([\w]+)\s+=\s+require\((?:'|")([\w-\.\/]+)(?:'|")\)(;|,)?/,
           range,
           ({match, replace, stop}) ->
-            if match.length is 3
-              replace("import #{match[1]} from '#{match[2]}';")
+            if match.length > 3
+              EOL = if match[3] then ';' else ''
+              replace("import #{match[1]} from '#{match[2]}'#{EOL}")
             else
               stop()
         )
