@@ -1,5 +1,4 @@
 {CompositeDisposable} = require 'atom'
-
 module.exports = Require2import =
   subscriptions: null
 
@@ -24,6 +23,16 @@ module.exports = Require2import =
             if match.length > 3
               EOL = if match[3] then ';' else ''
               replace("import #{match[1]} from '#{match[2]}'#{EOL}")
+            else
+              stop()
+        )
+        editor.scanInBufferRange(
+          /(?:(?:import)\s+)?(\{?[\w,\s]+\}?)\s+from\s+(?:'|")([\w-\.\/]+)(?:'|")(;|,)?/,
+          range,
+          ({match, replace, stop}) ->
+            if match.length > 3
+              EOL = if match[3] then ';' else ''
+              replace("var #{match[1]} = require ('#{match[2]}')#{EOL}")
             else
               stop()
         )
